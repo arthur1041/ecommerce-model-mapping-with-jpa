@@ -6,7 +6,10 @@ import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 public class Produto implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -16,6 +19,7 @@ public class Produto implements Serializable{
 	}
 	
 	public Produto(Integer id, String nome, String descricao, BigDecimal preco) {
+		super();
 		this.id = id;
 		this.nome = nome;
 		this.descricao = descricao;

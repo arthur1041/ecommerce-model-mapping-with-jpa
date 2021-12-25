@@ -1,10 +1,10 @@
 package com.artcruz.ecommerce.model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,18 +24,23 @@ import lombok.ToString;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 @Entity
-@Table(name = "cliente")
-public class Cliente implements Serializable {
+@Table(name = "nota_fiscal")
+public class NotaFiscal implements Serializable {
 	
-	private static final long serialVersionUID = -9064649571305002742L;
+	private static final long serialVersionUID = 1L;
 
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	private String nome;
+	@Column(name = "pedido_id")
+	private Integer pedidoId;
 	
-	@Enumerated(value = EnumType.STRING)
-	private SexoCliente sexo;
+	private String xml;
+	
+	@Column(name = "data_emissao")
+	private Date dataEmissao;
+	
+	
 }

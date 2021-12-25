@@ -2,9 +2,8 @@ package com.artcruz.ecommerce.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,10 +23,10 @@ import lombok.ToString;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 @Entity
-@Table(name = "cliente")
-public class Cliente implements Serializable {
+@Table(name = "categoria")
+public class Categoria implements Serializable {
 	
-	private static final long serialVersionUID = -9064649571305002742L;
+	private static final long serialVersionUID = 1L;
 
 	@EqualsAndHashCode.Include
 	@Id
@@ -36,6 +35,8 @@ public class Cliente implements Serializable {
 	
 	private String nome;
 	
-	@Enumerated(value = EnumType.STRING)
-	private SexoCliente sexo;
+	@Column(name = "categoria_pai_id")
+	private Integer categoriaPaiId;
+	
+	
 }
